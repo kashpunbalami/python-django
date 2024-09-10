@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to the Student Management System</h1>
+            <nav>
+                <a href="{% url 'real_home' %}"><img src="{% static 'images/logo.png' %}" alt="Logo" style="max-width: 100px" class="logo"></a>
+                <ul>
+                    <li><a href="{% url 'add_student' %}">Add Student</a></li>
+                    <li><a href="{% url 'student_list' %}">Student List</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <p>This is the home page of your Student Management System. Use the navigation links to manage students.</p>
+        </main>
+    </div>
+</body>
+</html>

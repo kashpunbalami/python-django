@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/delete_book.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Book List</h1>
+            <nav>
+                <a href="{% url 'real_home' %}"><img src="{% static 'images/logo.png' %}" alt="Logo" style="max-width: 100px" class="logo"></a>
+                <ul>
+                    <li><a href="{% url 'library_home' %}">Home</a></li>
+                    <li><a href="{% url 'add_book' %}">Add Book</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Published Date</th>
+                        <th>ISBN</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in books %}
+                        <tr>
+                            <td>{{ book.title }}</td>
+                            <td>{{ book.author.name }}</td>
+                            <td>{{ book.published_date }}</td>
+                            <td>{{ book.isbn }}</td>
+                            <td>
+                                <a href="{% url 'book_detail' book.pk %}">View</a>
+                                <a href="{% url 'edit_book' book.pk %}">Edit</a>
+                                <a href="{% url 'delete_book' book.pk %}" class="delete">Delete</a>            
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </main>
+    </div>
+</body>
+</html>

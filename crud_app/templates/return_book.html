@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Return Book</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Return Book</h1>
+        </header>
+        <a href="{% url 'real_home' %}"><img src="{% static 'images/logo.png' %}" alt="Logo" style="max-width: 100px" class="logo"></a>
+        <main>
+            <form method="post">
+                {% csrf_token %}
+                <p>Book: {{ borrow_record.book.title }}</p>
+                <p>Borrower: {{ borrow_record.borrower }}</p>
+
+                <label for="return_date">Return Date:</label>
+                <input type="date" id="return_date" name="return_date" required>
+
+                <button type="submit">Return Book</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
+  

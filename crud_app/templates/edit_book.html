@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Book</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Edit Book</h1>
+        </header>
+        <main>
+            <form method="post" action="{% url 'edit_book' pk=book.id %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Update Book</button>
+            </form>
+            
+            <h2>Borrow Records</h2>
+            {% if borrow_records %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Borrower Name</th>
+                            <th>Borrow Date</th>
+                            <th>Return Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for record in borrow_records %}
+                            <tr>
+                                <td>{{ record.borrower }}</td>
+                                <td>{{ record.borrow_date }}</td>
+                                <td>{{ record.return_date|default:"Not returned yet" }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No borrow records found for this book.</p>
+            {% endif %}
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Book Detail</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    </head>
+    <body>
+        <a href="{% url 'real_home' %}"><img src="{% static 'images/logo.png' %}" alt="Logo" style="max-width: 100px" class="logo"></a>
+        <div class="container">
+            <header>
+                <h1>Book Details</h1>
+            </header>
+            <main>
+                <h2>{{ book.title }}</h2>
+                <p><strong>Author:</strong>{{ book.author.name }}</p>
+                <p><strong>Published date:</strong>{{ book.published_date }}</p>
+                <p><strong>ISBN:</strong>{{ book.isbn }}</p>
+                <p><strong>Availiable:</strong>{{ book.availiable|yesno:"Yes,No" }}</p>
+                <p><strong>Biography:</strong>{{ book.author.biography }}</p>
+                <a href="{% url 'book_list' %}">Back to Book list</a>
+            </main>
+        </div>
+    </body>
+</html>

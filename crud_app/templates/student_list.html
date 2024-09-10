@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html>
+    <head><title>Student list on institution</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/student_list.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <a href="{% url 'real_home' %}"><img src="{% static 'images/logo.png' %}" alt="Logo" style="max-width: 100px" class="logo"></a>
+                <h1>Student List</h1>
+            </header>        
+            <form method="GET" action="{% url 'student_list' %}">
+                <input type="text" name="q" placeholder="Search students....." value="{{ request.GET.q}}">
+                <button type="submit">Search</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student First Name</th>
+                        <th>Student Last Name</th>
+                        <th>Student Email</th>
+                        <th>Student Phone Number</th>
+                        <th>Customize</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for n in students %}
+                    <tr>
+                        <td>{{ n.first_name }}</td>
+                        <td>{{ n.last_name }}</td>
+                        <td>{{ n.email }}</td>
+                        <td>{{ n.phone_number }}</td>
+                        <td>
+                            <a href="{% url 'update_student' n.id %}">Edit</a>
+                            <a href="{% url 'delete_student' n.id %}">Delete</a>                    
+                        </td>
+                    </tr>
+                    {% endfor%}
+                </tbody>
+            </table>
+        </div>      
+    </body>
+</html>

@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+header {
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+nav ul li a, nav ul li form button {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+}
+
+nav ul li a:hover, nav ul li form button:hover {
+    background-color: #ccc;
+}
+
+main {
+    margin-top: 20px;
+    margin-left: 190px;
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label{
+    font-weight: bold;
+}
+
+input{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border 0.3s;
+}
+
+input:focus{
+    border-color: #007BFF;
+}
+
+button{
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #0056b3;
+}
+
+.cancel{
+    background-color: aqua;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+}
+
+.cancel:hover{
+    background-color: aquamarine;
+}
+
+.logo {
+    position: absolute;
+    top: 10px; /* Distance from the top */
+    left: 150px; /* Distance from the left */
+    width: 100px; /* Adjust the width as needed */
+    height: auto; /* Keeps the aspect ratio */
+    max-width: 100%; /* Ensures it doesn't exceed the screen size */
+    z-index: 1000; /* Ensures it appears above other content */
+}

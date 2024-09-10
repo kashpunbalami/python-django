@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Author</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Add Author</h1>
+        </header>
+        <main>
+            <form method="post" action="{% url 'add_author' %}">
+                {% csrf_token %}
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="biography">Biography:</label>
+                <textarea id="biography" name="biography"></textarea>
+                <button type="submit">Add Author</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

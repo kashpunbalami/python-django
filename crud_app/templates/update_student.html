@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Update student file</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    </head>
+    <body>
+        <header>
+        <h1>Update Student</h1>
+        </header>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Update Student</button>
+        </form>
+    </body>
+</html>

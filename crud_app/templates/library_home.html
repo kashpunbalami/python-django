@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Library Management System</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <a href="{% url 'real_home' %}"><img src="{% static 'images/logo.png' %}" alt="Logo" style="max-width: 100px" class="logo"></a>
+            <header>
+                <h1>Library Management System</h1>
+                <nav>
+                    <uL>
+                        <li><a href="{% url 'book_list' %}">Book List</a></li>
+                        <li><a href="{% url 'add_book' %}">Add Book</a></li>
+                        <li><a href="{% url 'add_author' %}">Add Author</a></li>
+                    </uL>
+                </nav>
+            </header>
+            <main>
+                <p>Welcome to the Library System</p>
+            </main>
+        </div>
+    </body>
+</html>
